@@ -2,6 +2,7 @@
   "scripts": {
     "start": "node app.js"
   },
+  "main": "app.js",
   "dependencies": {
     "fs": "^0.0.1-security",
     "node-telegram-bot-api": "^0.26.0"
