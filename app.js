@@ -5,7 +5,7 @@ const options = {
     polling: true
 };
 const bot = new TelegramBot(TOKEN, options);
-
+const helpMessage = "This is inline bot, just start typing @AdmiralBulldogBot in any other chat and you will see list of commands. If it's not working, visit https://bulldog-bot.herokuapp.com/ to wake him up.";
 const data = JSON.parse(fs.readFileSync('bulldog_files.json', 'utf8'));
 
 bot.on('inline_query', function onCallbackQuery(callbackQuery) {
@@ -24,6 +24,14 @@ bot.on('inline_query', function onCallbackQuery(callbackQuery) {
     }
     bot.answerInlineQuery(id, results);
 });
+
+function help(msg) {
+    var chatId = msg.chat.id;
+    bot.sendMessage(chatId, helpMessage);
+}
+
+bot.onText(/\/start/, help);
+bot.onText(/\/help/, help);
 
 
 var express = require('express');
