@@ -22,7 +22,7 @@ const bot = new TelegramBot(TOKEN, options);
 // Note: we do not need to pass in the cert, as it already provided
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-const helpMessage = "This is inline bot, just start typing @AdmiralBulldogBot in any other chat and you will see list of commands. If it's not working, visit https://bulldog-bot.herokuapp.com/ to wake him up.";
+const helpMessage = "This is inline bot, just start typing @AdmiralBulldogBot in any other chat and you will see list of commands.";
 const data = JSON.parse(fs.readFileSync('bulldog_files.json', 'utf8'));
 
 bot.on('inline_query', function onCallbackQuery(callbackQuery) {
@@ -49,20 +49,3 @@ function help(msg) {
 
 bot.onText(/\/start/, help);
 bot.onText(/\/help/, help);
-
-
-// var express = require('express');
-// var app = express();
-//
-// app.set('port', (process.env.PORT || 5000));
-//
-// app.get('/', function(req, res){
-//     res.send('Thanks for waking me up! Bulldog bot here');
-// });
-//
-// app.listen(app.get('port'), function() {
-//     console.log('Node app is running on port', app.get('port'));
-// });
-//
-//
-//
