@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "npm app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "fs": "^0.0.1-security",
